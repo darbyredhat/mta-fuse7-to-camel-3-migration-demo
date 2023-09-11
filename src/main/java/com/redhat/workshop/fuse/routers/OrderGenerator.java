@@ -25,7 +25,8 @@ public class OrderGenerator extends RouteBuilder {
             .otherwise()
                 .log("Processing an activemq book")
                 .process(new OrderProcessor())
-                .marshal().jacksonxml()
+//                .marshal().jacksonxml()
+                .marshal().json()
                 .to("file:/tmp/fuse-workshop/activemq?fileName=activemq-${date:now:yyyy-MM-dd-HHmmssSSS}.xml");
             
     }

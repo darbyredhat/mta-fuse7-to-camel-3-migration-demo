@@ -13,22 +13,13 @@ public class RestRouter extends RouteBuilder {
 
         rest("/orders")
         .get("/").description("Get all orders")
-            .route().routeId("all-orders")
-            .log("Getting all order entries from database")
             .to(this.selectAll)
-        .endRest()
     
         .get("/{id}").description("Get orders by id")
-            .route().routeId("find-by-id")
-            .log("Getting order with id ${header.id} entry from database")
             .to(this.selectById)
-        .endRest()
             
         .post("/").type(Order.class).description("Create a new order")
-            .route().routeId("create order")
-            .log("Order received")
-            .to(this.insertOrder)
-        .endRest();
+            .to(this.insertOrder);
     }
 
     // Query support

@@ -19,7 +19,6 @@ public class RestSetup extends RouteBuilder{
             .apiProperty("api.path", "/")
             .apiProperty("host", "")
             .apiProperty("schemes", "https,http")
-            .apiContextRouteId("doc-api")
         .component("servlet")
         .bindingMode(RestBindingMode.json);
     
